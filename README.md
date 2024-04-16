@@ -1,6 +1,14 @@
+# About Quanta exoTrader
+
+Given the dynamic nature of the digital currency market, speed and trading accuracy are critical to managing return on investment and capital efficiency. Quanta exoTrader offers a hands-off approach to winning high probability trades across any time frame. With data science at its core, Quanta exoTrader navigates through market volatility, executing high profitability trades with precision whilst being capitally efficient. The algorithm's foundation in advanced analytics means it doesn't just react to the market—it anticipates it, transforming complex data into profitable trading opportunities. Quanta exoTrader is your co-pilot for sustainable investment growth.
+
+Alongside the Quanta exoTrader algorithm on Gunbot, the package also comes with a Trading View Visualisation, Tuning and Backtesting indicator. Settings below apply to both Gunbot and Trading View where applicable.
+
+Quanta exoTrader is licensed for use on the Gunbot crypto trading platform.
+
 # Quanta exoTrader Configuration Settings
 
-This document provides an overview of all the configuration settings available for Quanta exoTrader. Each setting includes a purpose and impact section to help users understand how to best utilise the options to suit their trading strategy.
+This document provides an overview of all the configuration settings available for Quanta exoTrader. Each setting includes a purpose and impact section to help traders understand how to best utilise the options to suit their trading style.
 
 ## Basic Strategy Settings
 
@@ -12,11 +20,11 @@ The basic strategy settings section includes parameters that define fundamental 
 
 - **Time Frame (`PERIOD`) - Default: 5**
   - **Purpose**: Determines the time frame for trading operations, defining the duration over which market data is analysed to generate trading signals.
-  - **Impact**: Changing the time frame alters the frequency and granularity of trade signals. Shorter periods provide more frequent but potentially less reliable signals, suitable for short-term trading. Longer periods offer fewer but potentially more reliable signals, better suited for long-term strategies.
+  - **Impact**: Changing the time frame alters the frequency and granularity of trade signals. Shorter periods provide more frequent but more volatile and higher frequency signals, suitable for short-term trading. Longer periods offer fewer but more reliable signals and profits, better suited for longer-term strategies.
 
 - **Min Notional (`MIN_VOLUME_TO_SELL`) - Default: "11"**
   - **Purpose**: Sets the minimum notional value required for selling assets on the exchange, ensuring trades meet the exchange's minimum requirements.
-  - **Impact**: Adjusting the minimum notional value affects the size of sell orders, ensuring they meet the exchange's requirements for order execution. Higher values may limit the frequency of sell orders but ensure compliance with exchange rules, while lower values increase trade frequency but risk order rejection.
+  - **Impact**: Adjusting the minimum notional value affects the size of trade orders, ensuring they meet the exchange's requirements for order execution. Higher values may limit the frequency of orders but ensure compliance with exchange rules, while lower values increase trade frequency but risk order rejection.
 
 - **Ignore Trades Before (`IGNORE_TRADES_BEFORE`) - Default: "0"**
   - **Purpose**: Specifies the timestamp before which historical trading data should be ignored, ensuring accurate analysis of recent market conditions.
@@ -36,7 +44,7 @@ The safety settings section comprises configurations related to risk management 
 
 - **Full Sell Only (`SELL_ALL_ASSET`) - Default: false**
   - **Purpose**: Enables or disables full sell-only mode, allowing the algorithm to sell the entire quote balance on the next sell signal.
-  - **Impact**: When full sell-only mode is enabled, the algorithm sells the entire quote balance on the next sell signal, which can be beneficial during downtrending markets to liquidate positions quickly. Disabling full sell-only mode allows for partial sell orders, providing more flexibility in managing assets during varying market conditions.
+  - **Impact**: When full sell-only mode is enabled, the algorithm sells the entire quote balance on the next sell signal, which can be beneficial during downtrending markets to liquidate positions quickly. Disabling full sell-only mode allows for standard sell orders, providing more flexibility in managing assets during varying market conditions.
 
 ## Partial Sell Settings
 
@@ -44,7 +52,7 @@ The partial sell settings section offers parameters for fine-tuning the partial 
 
 - **Partial Sell (`PARTIAL_SELL_BELOW_BEP`) - Default: false**
   - **Purpose**: Enables or disables partial sell orders below the break-even price, allowing for the gradual liquidation of assets.
-  - **Impact**: When partial sell is enabled, the algorithm can execute sell orders for a portion of the asset balance below the break-even price, allowing traders to take profits while retaining some exposure to potential price increases. Disabling partial sell results in full sell orders only, potentially limiting flexibility in profit-taking strategies.
+  - **Impact**: When partial sell is enabled, the algorithm can execute sell orders for a portion of the asset balance below the break-even and buy VWAP price, allowing traders to take profits while retaining some exposure to potential price increases. Disabling partial sell results in standard sell orders only, potentially limiting flexibility in profit-taking strategies.
 
 - **Partial Sell Ratio % (`PARTIAL_SELL_RATIO`) - Default: "90"**
   - **Purpose**: Sets the percentage of profitable units to be sold in partial sell orders, controlling the extent of asset liquidation.
@@ -56,11 +64,11 @@ The partial sell settings section offers parameters for fine-tuning the partial 
 
 ## Order Handling
 
-The order handling section provides configurations for managing order execution and placement. Traders can choose between limit orders and market orders, specify bid and ask positions within the order book, set the order refresh time, and enable or disable order kill functionality. These settings enable traders to control the execution price, order priority, responsiveness to market changes, and the lifecycle of open orders. By customising order handling parameters, traders can optimise order execution efficiency and adapt to dynamic market conditions.
+The order handling section provides configurations for managing order execution and placement. Traders can choose between post-only limit orders and market orders, specify bid and ask positions within the order book, set the order refresh time, and enable or disable order kill functionality. These settings enable traders to control the execution price, order priority, responsiveness to market changes, and the lifecycle of open orders. By customising order handling parameters, traders can optimise order execution efficiency and adapt to dynamic market conditions.
 
 - **Limit Orders (`POST_ONLY_ORDERS`) - Default: false**
-  - **Purpose**: Determines whether to use limit orders that will only execute at the limit price, providing control over the execution price.
-  - **Impact**: Enabling limit orders ensures that orders are posted at specific price levels, allowing traders to control the execution price and potentially reduce trading costs. Disabling limit orders results in market orders, which may execute at less favorable prices but offer greater speed of execution.
+  - **Purpose**: Determines whether to use post-only limit orders that will only execute at the limit price, providing control over the execution price.
+  - **Impact**: Enabling post-only limit orders ensures that orders are posted at specific price levels, allowing traders to control the execution price and potentially reduce trading costs. Disabling post-only limit orders results in market orders, which may execute at less favorable prices but offer greater speed of execution.
 
 - **Bid Position (Buy) (`BID_ORDER_BOOK_POSITION`) - Default: "2"**
   - **Purpose**: Specifies the position of buy orders within the order book, influencing the likelihood of order execution and price impact.
@@ -72,7 +80,7 @@ The order handling section provides configurations for managing order execution 
 
 - **Order Refresh Time (`ORDER_REFRESH_DELAY`) - Default: "10"**
   - **Purpose**: Specifies the duration for which open orders will remain active before being canceled and replaced, ensuring orders remain relevant to current market conditions.
-  - **Impact**: Adjusting the order refresh time determines how frequently open orders are updated to reflect changes in market conditions. Shorter refresh times ensure orders are responsive to price movements but may increase order cancellation fees. Longer refresh times reduce order cancellation fees but may result in orders becoming less competitive over time.
+  - **Impact**: Adjusting the order refresh time determines how frequently open orders are updated to reflect changes in market conditions. Shorter refresh times ensure orders are responsive to price movements but may trail price. Longer refresh times reduce price trailing but may result in orders becoming less competitive over time.
 
 - **Kill Open Orders (`ORDER_KILL`) - Default: true**
   - **Purpose**: Determines whether to cancel all open orders after the signal window closes, preventing stale orders from affecting new trading cycles.
@@ -83,27 +91,27 @@ The order handling section provides configurations for managing order execution 
 The algorithm tuning section consists of advanced parameters for fine-tuning the trading algorithm's technical indicators and signal generation. Traders can adjust parameters such as WT channel length, RSI length, Bollinger length, and various guard settings. These settings allow traders to customise the algorithm's sensitivity to market trends, momentum, volatility, and oversold/overbought conditions. By fine-tuning these parameters, traders can optimise the algorithm's performance and adaptability to different market environments, enhancing the precision and effectiveness of their trading strategy.
 
 - **WT Channel Length (`WT_CH_LENGTH`) - Default: 10**
-  - **Purpose**: Adjusts the lookback period for the main wave component of the Wave Trend Oscillator, affecting how quickly the strategy reacts to price changes.
-  - **Impact**: Modifying this length changes the sensitivity of the oscillator to recent price movements. Longer periods smooth out fluctuations, potentially missing early signals but reducing false positives. Shorter periods increase responsiveness, capturing more immediate market shifts at the risk of increased noise.
+  - **Purpose**: Adjusts the lookback period for the main wave component of the wave form, affecting how quickly the strategy reacts to price changes.
+  - **Impact**: Modifying this length changes the sensitivity of the wave form to recent price movements. Longer periods smooth out fluctuations, potentially missing early signals but reducing false positives. Shorter periods increase responsiveness, capturing more immediate market shifts at the risk of increased noise.
 
 - **WT Average Length (`WT_AVG_LENGTH`) - Default: 21**
-  - **Purpose**: Defines the smoothing period for the signal line within the Wave Trend Oscillator, influencing the clarity and reliability of trade signals.
+  - **Purpose**: Defines the smoothing period for the signal line within the wave form, influencing the clarity and reliability of trade signals.
   - **Impact**: Adjusting this length affects the delay in signal crossovers. Longer averages provide more robust signals at the expense of timeliness, while shorter averages generate more timely but potentially less reliable signals.
 
 - **WT SMA Length (`WT_SMA`) - Default: 3**
-  - **Purpose**: Determines the length of the Simple Moving Average applied to the Wave Trend Oscillator, smoothing out short-term price fluctuations.
+  - **Purpose**: Determines the length of the Simple Moving Average applied to the wave form, smoothing out short-term price fluctuations.
   - **Impact**: Shorter SMA lengths increase the oscillator's responsiveness, suitable for capturing short-term trends but potentially leading to more false signals. Longer lengths provide smoother outputs, filtering out noise but potentially causing delayed responses.
 
 - **WT Sell Level (`OB_LEVEL_ONE`) - Default: 53**
-  - **Purpose**: Sets the threshold for identifying overbought conditions using the Wave Trend Oscillator, signaling potential sell opportunities.
+  - **Purpose**: Sets the threshold for identifying sell conditions using the wave form, signaling potential sell opportunities.
   - **Impact**: Higher thresholds result in fewer sell signals, ensuring trades occur in more clearly overbought conditions, suitable for avoiding premature exits. Lower thresholds increase sensitivity, potentially capturing earlier sell signals but risking false positives.
 
 - **WT Buy Level (`OS_LEVEL_ONE`) - Default: -53**
-  - **Purpose**: Establishes a threshold for detecting oversold conditions, indicating potential undervaluation and buying opportunities.
+  - **Purpose**: Establishes a threshold for detecting buy conditions, indicating potential reversals and buying opportunities.
   - **Impact**: Lower thresholds result in more frequent buy signals, potentially capturing early entry points but risking false positives. Higher thresholds reduce the number of buy signals, ensuring trades occur in more deeply oversold conditions.
 
 - **RSI Length (`RSI_LENGTH`) - Default: 14**
-  - **Purpose**: Determines the calculation period for the Relative Strength Index (RSI), affecting its sensitivity to short-term price changes.
+  - **Purpose**: Determines the calculation period for the Relative Strength Index (RSI) bound transformation, affecting its sensitivity to short-term price changes.
   - **Impact**: Longer RSI lengths provide smoother outputs, suitable for identifying longer-term trends but potentially resulting in delayed signals. Shorter lengths increase responsiveness, capturing short-term price movements but potentially leading to more noise.
 
 - **RSI Buy Level (`BUY_RSI_LEVEL`) - Default: 30**
@@ -123,19 +131,19 @@ The algorithm tuning section consists of advanced parameters for fine-tuning the
   - **Impact**: Increasing the multiplier widens the bands, increasing the sensitivity to price movements but potentially leading to more false signals. Decreasing the multiplier narrows the bands, reducing sensitivity but potentially missing significant price moves.
 
 - **Use RSI on Buy (`USE_RSI_BUY`) - Default: True**
-  - **Purpose**: Enables or disables the use of RSI for buy decisions, allowing traders to adjust the strategy's aggressiveness based on RSI readings.
+  - **Purpose**: Enables or disables the use of RSI as a guard for buy decisions, allowing traders to adjust the strategy's aggressiveness based on RSI readings.
   - **Impact**: Enabling RSI on buy decisions adds a layer of confirmation to buy signals, potentially reducing the number of trades but increasing their quality. Disabling it may lead to more frequent buy signals but with increased risk.
 
 - **Use RSI on Sell (`USE_RSI_SELL`) - Default: True**
-  - **Purpose**: Enables or disables the use of RSI for sell decisions, allowing traders to adjust the strategy's conservatism based on RSI readings.
+  - **Purpose**: Enables or disables the use of RSI as a guard for sell decisions, allowing traders to adjust the strategy's conservatism based on RSI readings.
   - **Impact**: Enabling RSI on sell decisions adds confirmation to sell signals, potentially reducing the number of trades but increasing their quality. Disabling it may lead to more frequent sell signals but with increased risk.
 
 - **Use Bollinger Bands on Buy (`USE_BBANDS_BUY`) - Default: True**
-  - **Purpose**: Determines whether to incorporate Bollinger Bands into buy decisions, providing additional confirmation for trade entries based on price volatility.
+  - **Purpose**: Determines whether to incorporate Bollinger Bands as a guard into buy decisions, providing additional confirmation for trade entries based on price volatility.
   - **Impact**: Enabling Bollinger Bands on buy decisions adds validation to buy signals, potentially reducing the number of trades but increasing their quality. Disabling it may lead to more frequent buy signals but with increased risk.
 
 - **Use Bollinger Bands on Sell (`USE_BBANDS_SELL`) - Default: True**
-  - **Purpose**: Determines whether to incorporate Bollinger Bands into sell decisions, providing additional confirmation for trade exits based on price volatility.
+  - **Purpose**: Determines whether to incorporate Bollinger Bands as a guard into sell decisions, providing additional confirmation for trade exits based on price volatility.
   - **Impact**: Enabling Bollinger Bands on sell decisions adds validation to sell signals, potentially reducing the number of trades but increasing their quality. Disabling it may lead to more frequent sell signals but with increased risk.
 
 ## Various
@@ -152,7 +160,7 @@ The various section encompasses miscellaneous settings and options for additiona
 
 - **Store Balances (`BALANCE_OUTPUT`) - Default: false**
   - **Purpose**: Determines whether to store account balance information on each tick for external analysis if required.
-  - **Impact**: Enabling balance output allows traders to analyse account balances over time, providing insights into profit and loss trends. Disabling balance output reduces data storage requirements but may limit post-trade analysis capabilities.
+  - **Impact**: Enabling balance output allows traders to access account balances in a seperate json, providing the ability to use external tooling to monitor post-trade analysis.
 
 - **Verbose Mode (`VERBOSE`) - Default: false**
   - **Purpose**: Enables additional logging in the console, helpful for diagnostics or detailed monitoring.
