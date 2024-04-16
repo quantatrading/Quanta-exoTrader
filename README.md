@@ -1,6 +1,7 @@
 # Quanta exoTrader
 
-Basic Strategy Settings
+##Basic Strategy Settings
+
 Trade Limit (TRADE_LIMIT)
 
 Purpose: Specifies the amount of base currency to use for each trade.
