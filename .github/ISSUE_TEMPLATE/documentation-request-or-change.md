@@ -7,8 +7,8 @@ assignees: quantatrading
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Is your request related to a problem with or missing documentation?**
+Please add if its new documentation, existing change or something is missing.
 
 **Describe the documentation issue or request**
 A clear and concise description of what you want to happen.
