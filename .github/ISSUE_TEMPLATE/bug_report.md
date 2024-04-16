@@ -11,7 +11,7 @@ assignees: quantatrading
 A clear and concise description of what the bug is.
 
 **Related to TV or exoTrader**
-TradingView / Quanta exoTrader
+TradingView / exoTrader
 
 **To Reproduce**
 Steps to reproduce the behavior:
