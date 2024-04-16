@@ -52,7 +52,7 @@ The partial sell settings section offers parameters for fine-tuning the partial 
 
 - **Partial Sell (`PARTIAL_SELL_BELOW_BEP`) - Default: false**
   - **Purpose**: Enables or disables partial sell orders below the break-even price, allowing for the gradual liquidation of assets.
-  - **Impact**: When partial sell is enabled, the algorithm can execute sell orders for a portion of the asset balance below the break-even and buy VWAP price, allowing traders to take profits while retaining some exposure to potential price increases. Disabling partial sell results in standard sell orders only, potentially limiting flexibility in profit-taking strategies.
+  - **Impact**: When partial sell is enabled, the algorithm can conditionally execute sell orders for a portion of the asset balance below the break-even and buy VWAP price, allowing traders to take profits while retaining some exposure to potential price increases. PS Active tooltip provides a live view of the contitions required for partial sells to be active. Disabling partial sell results in standard sell orders only, potentially limiting flexibility in profit-taking strategies.
 
 - **Partial Sell Ratio % (`PARTIAL_SELL_RATIO`) - Default: 90**
   - **Purpose**: Sets the percentage of profitable units to be sold in partial sell orders, controlling the extent of asset liquidation.
