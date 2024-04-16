@@ -3,7 +3,7 @@ name: Bug report
 about: Create a bug report for Quanta exoTrader
 title: "[BUG]"
 labels: bug
-assignees: ''
+assignees: quantatrading
 
 ---
 
