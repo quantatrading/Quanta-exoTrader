@@ -8,7 +8,10 @@ assignees: quantatrading
 ---
 
 **Describe the feature you are requesting and how it would benefit the performance or user flow**
-Try to be specific
+A clear and concise description of what the feature is, how it would work etc.
 
 **Have you considered achieving the outcome with current features?**
-Think about if this is currently possible by thinking different
+Think about if this is currently possible by thinking different.
+
+**Provide examples or data to support the request**
+Link to additional data or information.
