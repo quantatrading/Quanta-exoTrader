@@ -10,6 +10,9 @@ assignees: quantatrading
 **Describe the bug**
 A clear and concise description of what the bug is.
 
+**Related to TV or exoTrader**
+TradingView / Quanta exoTrader
+
 **To Reproduce**
 Steps to reproduce the behavior:
 1. Go to '...'
