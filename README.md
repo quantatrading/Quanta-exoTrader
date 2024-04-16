@@ -50,6 +50,8 @@ The safety settings section comprises configurations related to risk management 
 
 The partial sell settings section offers parameters for fine-tuning the partial sell functionality of the strategy. Traders can enable partial sell orders below the break-even price and specify the ratio and gain percentage for partial sell orders. These settings allow traders to implement profit-taking strategies by gradually liquidating profitable assets while retaining exposure to potential price increases. By adjusting these parameters, traders can optimise profit-taking strategies based on market conditions and risk tolerance, maximising returns while managing downside risk.
 
+**IMPORTANT: Traders must ensure that the trade limit of the selected partial sell % is greater than the exchanges min notional.**
+
 - **Partial Sell (`PARTIAL_SELL_BELOW_BEP`) - Default: false**
   - **Purpose**: Enables or disables partial sell orders below the break-even price, allowing for the gradual liquidation of assets.
   - **Impact**: When partial sell is enabled, the algorithm can conditionally execute sell orders for a portion of the asset balance below the break-even and buy VWAP price, allowing traders to take profits while retaining some exposure to potential price increases. PS Active tooltip provides a live view of the contitions required for partial sells to be active. Disabling partial sell results in standard sell orders only, potentially limiting flexibility in profit-taking strategies.
