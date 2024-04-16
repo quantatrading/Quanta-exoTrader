@@ -14,7 +14,7 @@ This document provides an overview of all the configuration settings available f
 
 The basic strategy settings section includes parameters that define fundamental aspects of the trading strategy. Traders can customise parameters such as the trade limit, time frame, minimum notional value, and ignore trades before timestamp. These settings allow traders to control the size of their positions, the duration over which market data is analysed, compliance with exchange requirements, and the exclusion of historical trading data, respectively. By adjusting these parameters, traders can tailor the strategy to their specific preferences and market conditions.
 
-- **Trade Limit (`TRADE_LIMIT`) - Default: "0"**
+- **Trade Limit (`TRADE_LIMIT`) - Default: 0**
   - **Purpose**: Specifies the amount of the base asset to be used on each trade, allowing traders to control the size of their positions.
   - **Impact**: Adjusting the trade limit affects the capital allocation per trade, influencing the potential profit or loss per transaction. Higher limits allow for larger positions but increase risk exposure, while lower limits reduce risk but may limit profit potential.
 
@@ -22,11 +22,11 @@ The basic strategy settings section includes parameters that define fundamental 
   - **Purpose**: Determines the time frame for trading operations, defining the duration over which market data is analysed to generate trading signals.
   - **Impact**: Changing the time frame alters the frequency and granularity of trade signals. Shorter periods provide more frequent but more volatile and higher frequency signals, suitable for short-term trading. Longer periods offer fewer but more reliable signals and profits, better suited for longer-term strategies.
 
-- **Min Notional (`MIN_VOLUME_TO_SELL`) - Default: "11"**
+- **Min Notional (`MIN_VOLUME_TO_SELL`) - Default: 11**
   - **Purpose**: Sets the minimum notional value required for selling assets on the exchange, ensuring trades meet the exchange's minimum requirements.
   - **Impact**: Adjusting the minimum notional value affects the size of trade orders, ensuring they meet the exchange's requirements for order execution. Higher values may limit the frequency of orders but ensure compliance with exchange rules, while lower values increase trade frequency but risk order rejection.
 
-- **Ignore Trades Before (`IGNORE_TRADES_BEFORE`) - Default: "0"**
+- **Ignore Trades Before (`IGNORE_TRADES_BEFORE`) - Default: 0**
   - **Purpose**: Specifies the timestamp before which historical trading data should be ignored, ensuring accurate analysis of recent market conditions.
   - **Impact**: Setting the ignore trades before timestamp ensures that historical data beyond a certain point is not considered in trading decisions. This helps prevent outdated information from influencing strategy performance and ensures that trades are based on current market conditions.
 
@@ -54,11 +54,11 @@ The partial sell settings section offers parameters for fine-tuning the partial 
   - **Purpose**: Enables or disables partial sell orders below the break-even price, allowing for the gradual liquidation of assets.
   - **Impact**: When partial sell is enabled, the algorithm can execute sell orders for a portion of the asset balance below the break-even and buy VWAP price, allowing traders to take profits while retaining some exposure to potential price increases. Disabling partial sell results in standard sell orders only, potentially limiting flexibility in profit-taking strategies.
 
-- **Partial Sell Ratio % (`PARTIAL_SELL_RATIO`) - Default: "90"**
+- **Partial Sell Ratio % (`PARTIAL_SELL_RATIO`) - Default: 90**
   - **Purpose**: Sets the percentage of profitable units to be sold in partial sell orders, controlling the extent of asset liquidation.
   - **Impact**: Adjusting the partial sell ratio determines the proportion of profitable units to be sold when executing partial sell orders, allowing traders to customise profit-taking strategies based on market conditions. Higher ratios result in more aggressive profit-taking, while lower ratios allow for more conservative asset management.
 
-- **Partial Sell Gain % (`PARTIAL_SELL_GAIN`) - Default: "0.5"**
+- **Partial Sell Gain % (`PARTIAL_SELL_GAIN`) - Default: 0.5**
   - **Purpose**: Specifies the minimum percentage gain required for executing partial sell orders, ensuring profitability before initiating asset liquidation.
   - **Impact**: Setting the partial sell gain percentage establishes a threshold for profitable asset liquidation, preventing premature sell orders that may result in unrealised gains. Higher thresholds prioritise profitability, while lower thresholds may trigger sell orders more frequently but with reduced profitability potential.
 
@@ -70,15 +70,15 @@ The order handling section provides configurations for managing order execution 
   - **Purpose**: Determines whether to use post-only limit orders that will only execute at the limit price, providing control over the execution price.
   - **Impact**: Enabling post-only limit orders ensures that orders are posted at specific price levels, allowing traders to control the execution price and potentially reduce trading costs. Disabling post-only limit orders results in market orders, which may execute at less favorable prices but offer greater speed of execution.
 
-- **Bid Position (Buy) (`BID_ORDER_BOOK_POSITION`) - Default: "2"**
+- **Bid Position (Buy) (`BID_ORDER_BOOK_POSITION`) - Default: 2**
   - **Purpose**: Specifies the position of buy orders within the order book, influencing the likelihood of order execution and price impact.
   - **Impact**: Adjusting the bid position determines the priority of buy orders relative to other orders in the order book. Higher positions increase the likelihood of order execution but may also result in higher transaction fees or slippage. Lower positions prioritise price but may experience slower order execution.
 
-- **Ask Position (Sell) (`ASK_ORDER_BOOK_POSITION`) - Default: "2"**
+- **Ask Position (Sell) (`ASK_ORDER_BOOK_POSITION`) - Default: 2**
   - **Purpose**: Specifies the position of sell orders within the order book, affecting the speed and likelihood of order execution.
   - **Impact**: Setting the ask position determines the priority of sell orders relative to other orders in the order book. Higher positions increase the likelihood of order execution but may also result in higher transaction fees or slippage. Lower positions prioritise price but may experience slower order execution.
 
-- **Order Refresh Time (`ORDER_REFRESH_DELAY`) - Default: "10"**
+- **Order Refresh Time (`ORDER_REFRESH_DELAY`) - Default: 10**
   - **Purpose**: Specifies the duration for which open orders will remain active before being canceled and replaced, ensuring orders remain relevant to current market conditions.
   - **Impact**: Adjusting the order refresh time determines how frequently open orders are updated to reflect changes in market conditions. Shorter refresh times ensure orders are responsive to price movements but may trail price. Longer refresh times reduce price trailing but may result in orders becoming less competitive over time.
 
