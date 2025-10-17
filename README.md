@@ -8,4 +8,4 @@ Quanta exoTrader is licensed for use on the Gunbot crypto trading platform.
 
 # Detailed Documention
 
-Has moved to the [wiki](https://github.com/quantatrading/Quanta-exoTrader/wiki)
+Has moved to the [wiki](https://www.quantatrading.co.uk/docs/Quanta-exoTrader/Home)
